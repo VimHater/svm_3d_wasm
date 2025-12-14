@@ -94,7 +94,7 @@ void drawData() {
     }
 }
 void drawPlanesHandler(size_t &i) {
-    if (IsKeyPressed(KEY_N) && i < 99) {
+    if (IsKeyDown(KEY_N) && i < Planes.size() - 1) {
         i++;
     }
 }
@@ -131,6 +131,8 @@ int main() {
         EndMode3D();
 
         DrawText(TextFormat("Epoch: %03i", i), 40, 60, 30, WHITE);
+        DrawText(TextFormat("Plane: %03fx + %03fy + %03fz + %03f", Planes[i].w1, Planes[i].w2, Planes[i].w3, Planes[i].b)
+                 , 600, 60, 30, WHITE);
 
         EndDrawing();
     }

@@ -83,6 +83,7 @@ def train_iterative_svm(X: np.ndarray, y: np.ndarray, n_epochs: int = 100):
         eta0=0.01 
     )
     
+    print("/*")
     for epoch in range(1, n_epochs + 1):
         clf.partial_fit(X, y, classes=np.unique(y))
 
@@ -96,12 +97,11 @@ def train_iterative_svm(X: np.ndarray, y: np.ndarray, n_epochs: int = 100):
         plane_coefficients.append((w[0], w[1], w[2], b)) # Note: 'b' is now a scalar, so no 'b[0]' is needed
         
         # Optionally print the epoch number to show progress (not the full equation)
-        print("/*")
         if epoch % 10 == 0 or epoch == 1:
-            print(f"  Processed Epoch {epoch:03d}...")
-        print("*/")
+            print(f"//  Processed Epoch {epoch:03d}...")
 
 
+    print("*/")
     print("\n// Note: This block assumes the 'Point' struct and 'std::vector' are already defined.")
     print("\ntypedef struct {")
     print("    float w1, w2, w3, b;")
@@ -123,10 +123,10 @@ def train_iterative_svm(X: np.ndarray, y: np.ndarray, n_epochs: int = 100):
     print("};")
     
 if __name__ == "__main__":
-    N_POINTS = 100
+    N_POINTS = 400
     
     X_data, y_data = create_data(N=N_POINTS)
     
     print_dataset_cpp_header(X_data, y_data)
 
-    train_iterative_svm(X_data, y_data, n_epochs=100)
+    train_iterative_svm(X_data, y_data, n_epochs=400)
