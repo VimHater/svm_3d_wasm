@@ -110,7 +110,7 @@ def train_iterative_svm(X: np.ndarray, y: np.ndarray, n_epochs: int = 100):
     print(f"\n// Total epochs (equations): {len(plane_coefficients)}")
     print("std::vector<Equation> Planes = {")
     
-    for i, (w1, w2, w3, b_val) in enumerate(plane_coefficients): # Renamed b to b_val for clarity
+    for i, (w1, w2, w3, b_val) in enumerate(plane_coefficients):
         line = (
             f"  {{{w1: .8f}f, {w2: .8f}f, {w3: .8f}f, {b_val: .8f}f}}"
         )
