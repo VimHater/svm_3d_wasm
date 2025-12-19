@@ -103,13 +103,13 @@ int main() {
     InitWindow(1920, 1080, "support vector machine");
 
     Camera3D camera = {0};
-    camera.position = (Vector3){10.0f, 10.0f, 10.0f};
+    camera.position = (Vector3){-8.922038f, 11.18928f, 18.584983f};
     camera.target = (Vector3){0.0f, 0.0f, 0.0f};
     camera.up = (Vector3){0.0f, 1.0f,
                           0.0f};
     camera.fovy = 45.0f;          
     camera.projection = CAMERA_PERSPECTIVE;
-    SetTargetFPS(30);
+    SetTargetFPS(60);
     srand(time(NULL));
 
 
@@ -119,6 +119,7 @@ int main() {
     rlDisableBackfaceCulling();
     while (!WindowShouldClose()) {
         UpdateCamera(&camera, CAMERA_FREE);
+
         drawPlanesHandler(i);
 
         BeginDrawing();
@@ -134,6 +135,7 @@ int main() {
         DrawText(TextFormat("Plane: %03fx + %03fy + %03fz + %03f", Planes[i].w1, Planes[i].w2, Planes[i].w3, Planes[i].b)
                  , 600, 60, 30, WHITE);
 
+        DrawFPS(1600, 60);
         EndDrawing();
     }
     CloseWindow();
