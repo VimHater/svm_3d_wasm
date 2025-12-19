@@ -103,7 +103,7 @@ int main() {
     InitWindow(1920, 1080, "support vector machine");
 
     Camera3D camera = {0};
-    camera.position = (Vector3){-8.922038f, 11.18928f, 18.584983f};
+    camera.position = (Vector3){-8.9220381f, 11.18928f, 18.584983f};
     camera.target = (Vector3){0.0f, 0.0f, 0.0f};
     camera.up = (Vector3){0.0f, 1.0f,
                           0.0f};
